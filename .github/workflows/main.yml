@@ -1,0 +1,13 @@
+name: grader
+on:
+  push:
+    paths:
+      - '**/*.py'
+  workflow_dispatch: 
+
+jobs:
+  test:
+    runs-on: [self-hosted, Linux, X64]
+    timeout-minutes: 1
+    steps:
+    - uses: CSCI-B365-SP26/actions/a5@main
