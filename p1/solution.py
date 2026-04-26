@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv("p1/train.csv")
-dftest = pd.read_csv("p1/test.csv")
+df = pd.read_csv("train.csv")
+dftest = pd.read_csv("test.csv")
 N = len(df) #This and the next 2 lines calculate the inverted matrix in the normal equation
 sumxi = df["age"].sum()
 Xinv = np.linalg.inv(np.array([[N,sumxi],[sumxi,(df["age"]**2).sum()]]))
@@ -23,5 +23,5 @@ print(f"Sum of squared errors: {SSE:.2f}")
 dfplot = pd.DataFrame({"pred":(m*dftest["age"]+b), "actual": dftest["charges"]}) #Create new dataframe with one column for the prediced charge based on our earlier code and one for the actual charge
 scat = dfplot.plot.scatter(title="Health Insurance Charges Predicted vs. Actual",x="pred",y="actual") #Plot testing data onto scatter plot
 scat.set_xticks([0,10000,20000,30000,40000,50000,60000])
-plt.savefig("p1/problem1.png")
+plt.savefig("problem1.png")
 

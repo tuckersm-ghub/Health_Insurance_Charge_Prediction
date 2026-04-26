@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
-df = pd.read_csv("p3/Mall_Customers.csv")
+df = pd.read_csv("Mall_Customers.csv")
 
 #Pre-processing including dropping irrelevant values and discretization
 df = df.drop(columns="CustomerID")
@@ -36,7 +36,7 @@ plt.plot(kvals,SSElist)
 plt.title("Number of Clusters vs. SSE")
 plt.xlabel("# Clusters")
 plt.ylabel("SSE")
-plt.savefig("p3/problem3.png")
+plt.savefig("problem3.png")
 
 #Plot scatter plot
 plt.figure(2)
@@ -47,5 +47,5 @@ plt.scatter(new_X[:,0],new_X[:,1],c=pd.Series(kmc.labels_).map({0: "blue", 1: "r
 plt.title("Scatter Plot of Data After Principle Component Analysis")
 plt.xlabel("PC 1")
 plt.xlabel("PC 2")
-plt.savefig("p3/clusters.png")
+plt.savefig("clusters.png")
 
