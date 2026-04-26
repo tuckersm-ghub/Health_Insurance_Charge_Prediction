@@ -1,0 +1,157 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.19, pytest-9.0.2, pluggy-1.6.0
+rootdir: /home/b505/b365/_work
+collected 3 items
+
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py EEE             [100%]
+
+==================================== ERRORS ====================================
+________________________ ERROR at setup of test_part_1 _________________________
+
+    @pytest.fixture(scope="module")
+    def p1_output():
+      result = subprocess.run(
+            [sys.executable, "solution.py"],
+        cwd="p1",
+            capture_output=True,
+            text=True
+      )
+    
+      # Ensure the script actually ran successfully before testing logic
+>     assert result.returncode == 0, f"p1 crashed: {result.stderr}"
+E     AssertionError: p1 crashed: Traceback (most recent call last):
+E         File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p1/solution.py", line 6, in <module>
+E           df = pd.read_csv("p1/train.csv")
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+E           return _read(filepath_or_buffer, kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+E           parser = TextFileReader(filepath_or_buffer, **kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+E           self._engine = self._make_engine(f, self.engine)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+E           self.handles = get_handle(
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+E           handle = open(
+E       FileNotFoundError: [Errno 2] No such file or directory: 'p1/train.csv'
+E       
+E     assert 1 == 0
+E      +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...ne 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p1/train.csv\'\n').returncode
+
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py:16: AssertionError
+________________________ ERROR at setup of test_part_2 _________________________
+
+    @pytest.fixture(scope="module")
+    def p2_output():
+      result = subprocess.run(
+            [sys.executable, "solution.py"],
+        cwd="p2",
+            capture_output=True,
+            text=True
+      )
+    
+      # Ensure the script actually ran successfully before testing logic
+>     assert result.returncode == 0, f"p2 crashed: {result.stderr}"
+E     AssertionError: p2 crashed: Traceback (most recent call last):
+E         File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p2/solution.py", line 7, in <module>
+E           df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+E           return _read(filepath_or_buffer, kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+E           parser = TextFileReader(filepath_or_buffer, **kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+E           self._engine = self._make_engine(f, self.engine)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+E           self.handles = get_handle(
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+E           handle = open(
+E       FileNotFoundError: [Errno 2] No such file or directory: 'p2/Telco-Customer-Churn-Ready.csv'
+E       
+E     assert 1 == 0
+E      +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p2/Telco-Customer-Churn-Ready.csv\'\n').returncode
+
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py:37: AssertionError
+________________________ ERROR at setup of test_part_3 _________________________
+
+    @pytest.fixture(scope="module")
+    def p3_output():
+      result = subprocess.run(
+            [sys.executable, "solution.py"],
+        cwd="p3",
+            capture_output=True,
+            text=True
+      )
+    
+      # Ensure the script actually ran successfully before testing logic
+>     assert result.returncode == 0, f"p3 crashed: {result.stderr}"
+E     AssertionError: p3 crashed: Traceback (most recent call last):
+E         File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p3/solution.py", line 8, in <module>
+E           df = pd.read_csv("p3/Mall_Customers.csv")
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+E           return _read(filepath_or_buffer, kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+E           parser = TextFileReader(filepath_or_buffer, **kwds)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+E           self._engine = self._make_engine(f, self.engine)
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+E           self.handles = get_handle(
+E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+E           handle = open(
+E       FileNotFoundError: [Errno 2] No such file or directory: 'p3/Mall_Customers.csv'
+E       
+E     assert 1 == 0
+E      +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...n get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p3/Mall_Customers.csv\'\n').returncode
+
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py:58: AssertionError
+=========================== short test summary info ============================
+ERROR ../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py::test_part_1 - AssertionError: p1 crashed: Traceback (most recent call last):
+    File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p1/solution.py", line 6, in <module>
+      df = pd.read_csv("p1/train.csv")
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+      return _read(filepath_or_buffer, kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+      parser = TextFileReader(filepath_or_buffer, **kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+      self._engine = self._make_engine(f, self.engine)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+      self.handles = get_handle(
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+      handle = open(
+  FileNotFoundError: [Errno 2] No such file or directory: 'p1/train.csv'
+  
+assert 1 == 0
+ +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...ne 873, in get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p1/train.csv\'\n').returncode
+ERROR ../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py::test_part_2 - AssertionError: p2 crashed: Traceback (most recent call last):
+    File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p2/solution.py", line 7, in <module>
+      df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+      return _read(filepath_or_buffer, kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+      parser = TextFileReader(filepath_or_buffer, **kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+      self._engine = self._make_engine(f, self.engine)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+      self.handles = get_handle(
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+      handle = open(
+  FileNotFoundError: [Errno 2] No such file or directory: 'p2/Telco-Customer-Churn-Ready.csv'
+  
+assert 1 == 0
+ +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p2/Telco-Customer-Churn-Ready.csv\'\n').returncode
+ERROR ../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py::test_part_3 - AssertionError: p3 crashed: Traceback (most recent call last):
+    File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p3/solution.py", line 8, in <module>
+      df = pd.read_csv("p3/Mall_Customers.csv")
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+      return _read(filepath_or_buffer, kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+      parser = TextFileReader(filepath_or_buffer, **kwds)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+      self._engine = self._make_engine(f, self.engine)
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+      self.handles = get_handle(
+    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
+      handle = open(
+  FileNotFoundError: [Errno 2] No such file or directory: 'p3/Mall_Customers.csv'
+  
+assert 1 == 0
+ +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...n get_handle\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p3/Mall_Customers.csv\'\n').returncode
+============================== 3 errors in 2.96s ===============================
