@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("Telco-Customer-Churn-Ready.csv")
+df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
 
 #Pre-processing: Make values numeric
 df = df.drop(columns=["customerID"])
@@ -34,10 +34,12 @@ best_k = -1
 dfplot = pd.DataFrame({"prec": [-1,-1,-1,-1], "k": kvals})
 index = 0
 crosserr = np.array_split(df.sample(frac=1),10)
+besttp = -1
+bestfp = -1
 
 #Find average precision for each k using cross validation
 for k in kvals:
-    prec = np.array([0,0,0,0,0,0,0,0,0,0])
+    prec = pd.Series([0,0,0,0,0,0,0,0,0,0])
     for i in range(1,11):
         trainset = pd.DataFrame()
         for j in range(1,11):
@@ -54,7 +56,7 @@ for k in kvals:
         if tp + fp!=0:
             prec[i-1] = tp/(tp + fp)
     precavg = sum(prec) / len(prec)
-    dfplot["prec"].loc[index] = precavg
+    dfplot.loc[index,"prec"] = precavg
     if precavg > max_prec:
         max_prec = precavg
         best_k = k
@@ -62,5 +64,10 @@ for k in kvals:
 
 print(f"Best precision: {max_prec:.2f} when k: {best_k}")
 
+plt.figure(1)
 plt.plot(dfplot["k"],dfplot["prec"]) #Plot line chart
-plt.savefig("problem2.png")
+plt.savefig("p2/problem2.png")
+
+plt.figure(2) #Plot ROC curve
+plt.plot()
+plt.savefig("roc.png")
