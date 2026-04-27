@@ -3,57 +3,45 @@ platform linux -- Python 3.10.19, pytest-9.0.2, pluggy-1.6.0
 rootdir: /home/b505/b365/_work
 collected 3 items
 
-../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py .E.             [100%]
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py .F.             [100%]
 
-==================================== ERRORS ====================================
-________________________ ERROR at setup of test_part_2 _________________________
+=================================== FAILURES ===================================
+_________________________________ test_part_2 __________________________________
 
-    @pytest.fixture(scope="module")
-    def p2_output():
-      result = subprocess.run(
-            [sys.executable, "solution.py"],
-        cwd="p2",
-            capture_output=True,
-            text=True
-      )
+p2_output = 'Best precision: 0.00 when k: 5\n'
+
+    def test_part_2(p2_output, ):
+      # Best precision: FLOAT when k: INTEGER
+        assert p2_output and p2_output.strip(), "The output string is empty."
     
-      # Ensure the script actually ran successfully before testing logic
->     assert result.returncode == 0, f"p2 crashed: {result.stderr}"
-E     AssertionError: p2 crashed: Traceback (most recent call last):
-E         File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p2/solution.py", line 7, in <module>
-E           df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
-E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-E           return _read(filepath_or_buffer, kwds)
-E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-E           parser = TextFileReader(filepath_or_buffer, **kwds)
-E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-E           self._engine = self._make_engine(f, self.engine)
-E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
-E           self.handles = get_handle(
-E         File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
-E           handle = open(
-E       FileNotFoundError: [Errno 2] No such file or directory: 'p2/Telco-Customer-Churn-Ready.csv'
-E       
-E     assert 1 == 0
-E      +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p2/Telco-Customer-Churn-Ready.csv\'\n').returncode
+        # 2. Use the built-in string method which safely handles multiple spaces
+        output_tokens = p2_output.split()
+    
+        # 3. Safely attempt to parse the float, failing gracefully if it's not a number
+        try:
+            precision = float(output_tokens[2])
+            k = float(output_tokens[-1])
+        except ValueError:
+            pytest.fail(f"Invalid output format")
+    
+        # 4. Use an f-string in the assertion to show exactly what went wrong
+>       assert precision >= MIN_PREC, (
+            f"Precision must be >= {MIN_PREC}, but got {precision}"
+        )
+E       AssertionError: Precision must be >= 0.565, but got 0.0
+E       assert 0.0 >= 0.565
 
-../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py:37: AssertionError
+../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py:110: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+
+========================================
+RAW OUTPUT
+========================================
+Best precision: 0.00 when k: 5
+
+========================================
+
 =========================== short test summary info ============================
-ERROR ../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py::test_part_2 - AssertionError: p2 crashed: Traceback (most recent call last):
-    File "/home/b505/b365/_work/A5-tuckersm/A5-tuckersm/p2/solution.py", line 7, in <module>
-      df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
-    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
-      return _read(filepath_or_buffer, kwds)
-    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 620, in _read
-      parser = TextFileReader(filepath_or_buffer, **kwds)
-    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
-      self._engine = self._make_engine(f, self.engine)
-    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
-      self.handles = get_handle(
-    File "/home/b505/b365/_work/_tool/Python/3.10.19/x64/lib/python3.10/site-packages/pandas/io/common.py", line 873, in get_handle
-      handle = open(
-  FileNotFoundError: [Errno 2] No such file or directory: 'p2/Telco-Customer-Churn-Ready.csv'
-  
-assert 1 == 0
- +  where 1 = CompletedProcess(args=['/home/b505/b365/_work/_tool/Python/3.10.19/x64/bin/python', 'solution.py'], returncode=1, stdo...\n    handle = open(\nFileNotFoundError: [Errno 2] No such file or directory: \'p2/Telco-Customer-Churn-Ready.csv\'\n').returncode
-========================== 2 passed, 1 error in 3.62s ==========================
+FAILED ../../_actions/CSCI-B365-SP26/actions/main/a5/test_a5.py::test_part_2 - AssertionError: Precision must be >= 0.565, but got 0.0
+assert 0.0 >= 0.565
+========================= 1 failed, 2 passed in 4.61s ==========================
