@@ -4,7 +4,7 @@ import numpy as np
 from sklearn.neighbors import KNeighborsClassifier
 import matplotlib.pyplot as plt
 
-df = pd.read_csv("p2/Telco-Customer-Churn-Ready.csv")
+df = pd.read_csv("Telco-Customer-Churn-Ready.csv")
 
 #Pre-processing: Make values numeric
 df = df.drop(columns=["customerID"])
@@ -63,4 +63,4 @@ for k in kvals:
 print(f"Best precision: {max_prec:.2f} when k: {best_k}")
 
 plt.plot(dfplot["k"],dfplot["prec"]) #Plot line chart
-plt.savefig("p2/problem2.png")
+plt.savefig("problem2.png")
